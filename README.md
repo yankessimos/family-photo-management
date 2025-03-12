@@ -17,6 +17,10 @@ Este é um projeto fullstack de gerenciamento de fotos em família, onde os usu�
 - **Express** para criar o servidor
 - **Axios** para fazer requisições à API do JSONPlaceholder
 
+### **Testes**
+
+- **Jest** para fazer os testes unitários
+
 ## **Pré-requisitos**
 
 Antes de começar, certifique-se de ter instalado:
@@ -33,7 +37,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
 
 ```bash
 git clone https://github.com/yankessimos/family-photo-management.git
-cd family-photo-app
+cd family-photo-management
 ```
 
 ### **2. Configure o Backend**
@@ -116,10 +120,11 @@ O backend atua como um proxy para a API do JSONPlaceholder. Aqui estão os princ
 
 O projeto inclui testes unitários para garantir a funcionalidade dos componentes e da lógica de negócios. Para rodar os testes:
 
-1. Navegue até a pasta do frontend:
+1. Navegue até a pasta do frontend ou do backend:
 
    ```bash
    cd frontend
+   cd backend
    ```
 
 2. Execute os testes:
