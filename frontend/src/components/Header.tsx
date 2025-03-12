@@ -14,7 +14,9 @@ function Header({ title, children }: Props) {
             <NavLink to="/">Home</NavLink>
           </li>
           <li className="font-bold">{title}</li>
-          <li>Ver meus Álbuns</li>
+          <li className="no-underline hover:underline">
+            <NavLink to="#">Ver meus álbuns</NavLink>
+          </li>
         </ul>
         <hr />
       </nav>

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 function Card({ user }: { user: UserType }) {
   return (
-    <NavLink className="inset-shadow-sm inset-shadow-gray-400 rounded-md py-2 px-4 m-4 flex" to={`/user/${user.id}`}>
+    <NavLink className="inset-shadow-sm inset-shadow-gray-400 rounded-md py-2 px-4 flex" to={`/user/${user.id}`}>
       <header aria-label="Informações do usuário">
         <p aria-label="Nome do usuário">
           Álbum de <span className="font-semibold">{user.name}</span>

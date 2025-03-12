@@ -42,12 +42,14 @@ function Albums({ users }: { users: UserType[] }) {
 
   return (
     <Header title={`Álbuns de ${user.name}`}>
-      <section className="container mx-auto">
-        <nav aria-label="Navegação de álbuns">
+      <section className="container mx-auto p-2">
+        <nav aria-label="Navegação de álbuns" className="mx-6 my-2 columns-1 md:columns-3">
           {albums
             .filter((album: AlbumType) => album.userId === Number(userId))
             .map((album: AlbumType) => (
-              <Album key={album.id} album={album} />
+              <div className="p-2">
+                <Album key={album.id} album={album} />
+              </div>
             ))}
         </nav>
       </section>
