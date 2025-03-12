@@ -1,162 +1,162 @@
 # **Family Photo Management**
 
-Este é um projeto fullstack de gerenciamento de fotos em família, onde os usuários podem visualizar, criar, atualizar e excluir fotos e álbuns. O projeto consiste em um frontend em React (com TypeScript) e um backend em Node.js (com TypeScript) que atua como um Backend for Frontend (BFF) para consumir a API pública do [JSONPlaceholder](https://jsonplaceholder.typicode.com/). O ID do usuário em questão é o **ID 1**, feito desta forma para poupar tempo no desenvolvimento de uma página de login, o que não era o foco do desafio.
+This is a fullstack project for managing family photos, where users can view, create, update, and delete photos and albums. The project consists of a React frontend (with TypeScript) and a Node.js backend (with TypeScript) that acts as a Backend for Frontend (BFF) to consume the public API from [JSONPlaceholder](https://jsonplaceholder.typicode.com/). The user ID in question is **ID 1**, set this way to save time on developing a login page, which was not the focus of the challenge.
 
-## ⚠️ **Desafio incompleto**
+## ⚠️ **Incomplete Challenge**
 
-Devido a eu já estar trabalhando em um contexto dentro da dti (o que me levou a priorizar as tasks do time, principalmente por estar com um prazo apertado em uma task crucial de entrega), algumas partes da tarefa ficaram faltando, todavia, deixarei aqui explicado o que faltou e como eu faria cada um desses passos.
+Due to my current work context at dti (which led me to prioritize team tasks, especially since I was on a tight deadline for a crucial delivery task), some parts of the task were left unfinished. However, I will explain here what was missing and how I would approach each of these steps.
 
-### **1. Alterações das fotos e persistência**
+### **1. Photo Changes and Persistence**
 
 #### **Backend**
 
-Será criado um `POST` para adição de fotos; um `PUT` para a alteração de alguma foto, sendo sua URL ou título; e, por fim, um `DELETE` para deleção completa de uma foto. O mesmo seria feito para álbuns, uma vez que a tarefa solicita que o mesmo possa ocorrer, cada um em seu devido arquivo em `/backend/api`. É válido ressaltar que, por mais que o **JSONPlaceholder** não persista dados, seria utilizado suas rotas para alterações já existentes na API, somente mudando a estratégia de retorno para persistir os dados no front utilizando os IDs do álbum/foto.
+A `POST` endpoint would be created for adding photos; a `PUT` endpoint for modifying a photo, such as its URL or title; and finally, a `DELETE` endpoint for completely removing a photo. The same would be done for albums, as the task requires that this functionality be available, each in its respective file in `/backend/api`. It is worth noting that, although **JSONPlaceholder** does not persist data, its routes would be used for existing changes in the API, only changing the return strategy to persist data on the frontend using the album/photo IDs.
 
 #### **Frontend**
 
-Será criado, utilizando o Redux, um pequeno armazenamento de dados que já salvaria todos os dados do usuário, álbuns e fotos do usuário de **ID 1** (conforme explicado no início deste documento). Todas as alterações sequentes seriam feitas manipulando diretamente no Redux, facilitando a persistência.
+Using Redux, a small data storage would be created to save all user data, albums, and photos for user **ID 1** (as explained at the beginning of this document). All subsequent changes would be made by directly manipulating the Redux store, facilitating persistence.
 
-### **2. Utilização do shadcn**
+### **2. Use of shadcn**
 
-Embora sua utilização seja relativamente _simples_, eu não possuía muito tempo para ler toda a documentação, aplicar e me adequar à utilização completa e confiável da biblioteca, portanto, optei por utilizar somente o **Tailwind** no CSS do desafio.
+Although its usage is relatively _simple_, I did not have much time to read the entire documentation, apply, and adapt to the complete and reliable use of the library. Therefore, I opted to use only **Tailwind** for the CSS in this challenge.
 
 ### **3. UI**
 
-A UI do frontend ficou de uma qualidade extremamente questionável. Devido ao curto tempo e a ausência de um design pré-estabelecido, optei por melhorar e otimizar algumas coisas dentro do código à melhorar o design (parte secundária, creio eu) do desafio.
+The UI of the frontend ended up being of extremely questionable quality. Due to the short time and the lack of a pre-established design, I chose to improve and optimize some things within the code rather than improve the design (a secondary aspect, I believe) of the challenge.
 
-### **4. Bug nas fotos**
+### **4. Photo Bug**
 
-Por algum motivo, todas as URLs das fotos da API estavam deprecadas, dando erro ao tentar recuperá-las, levando a utilização de um placeholder para que mostrasse algo ao usuário.
+For some reason, all the photo URLs from the API were deprecated, causing errors when trying to retrieve them, leading to the use of a placeholder to show something to the user.
 
-## **Tecnologias Utilizadas**
+## **Technologies Used**
 
 ### **Frontend**
 
-- **React** com **TypeScript**;
-- **Vite** como build tool;
-- **Tailwind CSS** para estilização;
-- **React Router** para navegação entre páginas.
+- **React** with **TypeScript**;
+- **Vite** as the build tool;
+- **Tailwind CSS** for styling;
+- **React Router** for navigation between pages.
 
 ### **Backend**
 
-- **Node.js** com **TypeScript**;
-- **Express** para criar o servidor;
-- **Axios** para fazer requisições à API do JSONPlaceholder.
+- **Node.js** with **TypeScript**;
+- **Express** to create the server;
+- **Axios** to make requests to the JSONPlaceholder API.
 
-### **Testes**
+### **Testing**
 
-- **Jest** para fazer os testes unitários
+- **Jest** for unit testing.
 
-## **Pré-requisitos**
+## **Prerequisites**
 
-Antes de começar, certifique-se de ter instalado:
+Before starting, make sure you have installed:
 
-- **Node.js** (versão 18 ou superior)
-- **npm** ou **yarn** (gerenciadores de pacotes)
-- **Git** (para clonar o repositório)
+- **Node.js** (version 18 or higher)
+- **npm** or **yarn** (package managers)
+- **Git** (to clone the repository)
 
-## **Como Rodar o Projeto**
+## **How to Run the Project**
 
-Siga os passos abaixo para configurar e rodar o projeto localmente.
+Follow the steps below to set up and run the project locally.
 
-### **1. Clone o Repositório**
+### **1. Clone the Repository**
 
 ```bash
 git clone https://github.com/yankessimos/family-photo-management.git
 cd family-photo-management
 ```
 
-### **2. Configure o Backend**
+### **2. Set Up the Backend**
 
-1. Navegue até a pasta do backend:
+1. Navigate to the backend folder:
 
    ```bash
    cd backend
    ```
 
-2. Instale as dependências:
+2. Install the dependencies:
 
    ```bash
    npm install
    ```
 
-3. Inicie o servidor do backend:
+3. Start the backend server:
 
    ```bash
    npm start
    ```
 
-   O backend estará rodando em `http://localhost:5000`.
+   The backend will be running at `http://localhost:5000`.
 
-### **3. Configure o Frontend**
+### **3. Set Up the Frontend**
 
-1. Navegue até a pasta do frontend:
+1. Navigate to the frontend folder:
 
    ```bash
    cd ../frontend
    ```
 
-2. Instale as dependências:
+2. Install the dependencies:
 
    ```bash
    npm install
    ```
 
-3. Inicie o servidor de desenvolvimento do frontend:
+3. Start the frontend development server:
 
    ```bash
    npm run dev
    ```
 
-   O frontend estará rodando em `http://localhost:5173`.
+   The frontend will be running at `http://localhost:5173`.
 
-### **4. Acesse a Aplicação**
+### **4. Access the Application**
 
-Abra o navegador e acesse:
+Open your browser and go to:
 
 ```
 http://localhost:5173
 ```
 
-## **Estrutura do Projeto**
+## **Project Structure**
 
 ### **Backend**
 
-- **`server.ts`**: Ponto de entrada do servidor.
-- **`api/`**: Contém os arquivos de rotas (usuários, álbuns, fotos).
-- **`types/`**: Define as interfaces TypeScript para os dados da API.
+- **`server.ts`**: Entry point of the server.
+- **`api/`**: Contains the route files (users, albums, photos).
+- **`types/`**: Defines the TypeScript interfaces for the API data.
 
 ### **Frontend**
 
-- **`src/`**: Contém o código-fonte do frontend.
-  - **`components/`**: Componentes reutilizáveis.
-  - **`pages/`**: Páginas da aplicação.
-  - **`types/`**: Define as interfaces TypeScript para os dados da API.
-  - **`App.tsx`**: Configuração das rotas e estrutura principal da aplicação.
+- **`src/`**: Contains the frontend source code.
+  - **`components/`**: Reusable components.
+  - **`pages/`**: Application pages.
+  - **`types/`**: Defines the TypeScript interfaces for the API data.
+  - **`App.tsx`**: Route configuration and main application structure.
 
-## **Endpoints da API**
+## **API Endpoints**
 
-O backend atua como um proxy para a API do JSONPlaceholder. Aqui estão os principais endpoints:
+The backend acts as a proxy for the JSONPlaceholder API. Here are the main endpoints:
 
-- **Listar usuários**: `GET /users`
-- **Listar álbuns de um usuário**: `GET /albums/:id`
-- **Listar fotos de um álbum**: `GET /photos/:id`
+- **List users**: `GET /users`
+- **List albums of a user**: `GET /albums/:id`
+- **List photos of an album**: `GET /photos/:id`
 
-## **Testes**
+## **Testing**
 
-O projeto inclui testes unitários para garantir a lógica de negócios. Para rodar os testes:
+The project includes unit tests to ensure business logic. To run the tests:
 
-1. Navegue até a pasta do backend:
+1. Navigate to the backend folder:
 
    ```bash
    cd backend
    ```
 
-2. Execute os testes:
+2. Run the tests:
    ```bash
    npm test
    ```
 
-## **Licença**
+## **License**
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
