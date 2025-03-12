@@ -33,7 +33,7 @@ function Albums({ users }: { users: UserType[] }) {
   }, [userId])
 
   if (isLoading) {
-    return <p>Carregando álbuns...</p>
+    return <p>Loading albums...</p>
   }
 
   if (error) {
@@ -41,9 +41,9 @@ function Albums({ users }: { users: UserType[] }) {
   }
 
   return (
-    <Header title={`Álbuns de ${user.name}`}>
+    <Header title={`Albums of ${user.name}`}>
       <section className="container mx-auto p-2">
-        <nav aria-label="Navegação de álbuns" className="mx-6 my-2 columns-1 md:columns-3">
+        <nav aria-label="Albums navigation" className="mx-6 my-2 columns-1 md:columns-3">
           {albums
             .filter((album: AlbumType) => album.userId === Number(userId))
             .map((album: AlbumType) => (

@@ -4,9 +4,9 @@ import { UserType } from "@/types"
 
 function Home({ users }: { users: UserType[] }) {
   return (
-    <Header title="Álbuns dos Familiares">
+    <Header title="Family Albums">
       <section className="container mx-auto p-2">
-        <nav aria-label="Navegação de usuários" className="mx-6 my-2 columns-1 md:columns-3">
+        <nav aria-label="Users navigation" className="mx-6 my-2 columns-1 md:columns-3">
           {users
             .filter((user: UserType) => user.id !== 1)
             .map((user: UserType) => (

@@ -16,13 +16,13 @@ function App() {
         const response = await fetch("/api/users")
 
         if (!response.ok) {
-          throw new Error("Erro ao buscar usuários")
+          throw new Error("Error while searching for users")
         }
 
         const data = await response.json()
         setUsers(data)
       } catch (error) {
-        setError(error instanceof Error ? error.message : "Erro desconhecido")
+        setError(error instanceof Error ? error.message : "Unknown error")
       } finally {
         setIsLoading(false)
       }
@@ -32,11 +32,11 @@ function App() {
   }, [])
 
   if (isLoading) {
-    return <p>Carregando usuários...</p>
+    return <p>Loading users...</p>
   }
 
   if (error) {
-    return <p className="text-red-500">Erro: {error}</p>
+    return <p className="text-red-500">Error: {error}</p>
   }
 
   return (

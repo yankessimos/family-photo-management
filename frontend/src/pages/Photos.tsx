@@ -39,8 +39,8 @@ function Photos() {
   }
 
   return (
-    <Header title="Fotos do álbum">
-      <section aria-label="Fotos do álbum">
+    <Header title="Photos of album">
+      <section aria-label="Photos of album">
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {photos
             .filter((photo: PhotoType) => photo.albumId === Number(albumId))
