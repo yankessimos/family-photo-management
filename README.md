@@ -1,21 +1,47 @@
 # **Family Photo Management**
 
-Este é um projeto fullstack de gerenciamento de fotos em família, onde os usuários podem visualizar, criar, atualizar e excluir fotos e álbuns. O projeto consiste em um frontend em React (com TypeScript) e um backend em Node.js (com TypeScript) que atua como um Backend for Frontend (BFF) para consumir a API pública do [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+Este é um projeto fullstack de gerenciamento de fotos em família, onde os usuários podem visualizar, criar, atualizar e excluir fotos e álbuns. O projeto consiste em um frontend em React (com TypeScript) e um backend em Node.js (com TypeScript) que atua como um Backend for Frontend (BFF) para consumir a API pública do [JSONPlaceholder](https://jsonplaceholder.typicode.com/). O ID do usuário em questão é o **ID 1**, feito desta forma para poupar tempo no desenvolvimento de uma página de login, o que não era o foco do desafio.
+
+## ⚠️ **Desafio incompleto**
+
+Devido a eu já estar trabalhando em um contexto dentro da dti (o que me levou a priorizar as tasks do time, principalmente por estar com um prazo apertado em uma task crucial de entrega), algumas partes da tarefa ficaram faltando, todavia, deixarei aqui explicado o que faltou e como eu faria cada um desses passos.
+
+### **1. Alterações das fotos e persistência**
+
+#### **Backend**
+
+Será criado um `POST` para adição de fotos; um `PUT` para a alteração de alguma foto, sendo sua URL ou título; e, por fim, um `DELETE` para deleção completa de uma foto. O mesmo seria feito para álbuns, uma vez que a tarefa solicita que o mesmo possa ocorrer, cada um em seu devido arquivo em `/backend/api`. É válido ressaltar que, por mais que o **JSONPlaceholder** não persista dados, seria utilizado suas rotas para alterações já existentes na API, somente mudando a estratégia de retorno para persistir os dados no front utilizando os IDs do álbum/foto.
+
+#### **Frontend**
+
+Será criado, utilizando o Redux, um pequeno armazenamento de dados que já salvaria todos os dados do usuário, álbuns e fotos do usuário de **ID 1** (conforme explicado no início deste documento). Todas as alterações sequentes seriam feitas manipulando diretamente no Redux, facilitando a persistência.
+
+### **2. Utilização do shadcn**
+
+Embora sua utilização seja relativamente _simples_, eu não possuía muito tempo para ler toda a documentação, aplicar e me adequar à utilização completa e confiável da biblioteca, portanto, optei por utilizar somente o **Tailwind** no CSS do desafio.
+
+### **3. UI**
+
+A UI do frontend ficou de uma qualidade extremamente questionável. Devido ao curto tempo e a ausência de um design pré-estabelecido, optei por melhorar e otimizar algumas coisas dentro do código à melhorar o design (parte secundária, creio eu) do desafio.
+
+### **4. Bug nas fotos**
+
+Por algum motivo, todas as URLs das fotos da API estavam deprecadas, dando erro ao tentar recuperá-las, levando a utilização de um placeholder para que mostrasse algo ao usuário.
 
 ## **Tecnologias Utilizadas**
 
 ### **Frontend**
 
-- **React** com **TypeScript**
-- **Vite** como build tool
-- **Tailwind CSS** para estilização
-- **React Router** para navegação entre páginas
+- **React** com **TypeScript**;
+- **Vite** como build tool;
+- **Tailwind CSS** para estilização;
+- **React Router** para navegação entre páginas.
 
 ### **Backend**
 
-- **Node.js** com **TypeScript**
-- **Express** para criar o servidor
-- **Axios** para fazer requisições à API do JSONPlaceholder
+- **Node.js** com **TypeScript**;
+- **Express** para criar o servidor;
+- **Axios** para fazer requisições à API do JSONPlaceholder.
 
 ### **Testes**
 
