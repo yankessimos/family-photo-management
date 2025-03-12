@@ -8,7 +8,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params
 
   try {
-    const response: AxiosResponse<AlbumType[]> = await axios.get(`https://jsonplaceholder.typicode.com/users/${req.params.id}/albums`)
+    const response: AxiosResponse<AlbumType[]> = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}/albums`)
 
     if (response.data.length === 0) {
       res.status(404).json({ error: `Albums do ID ${id} não encontrados` })
