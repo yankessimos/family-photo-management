@@ -1,21 +1,23 @@
 import request from "supertest"
 import express from "express"
+import axios from "axios"
 import albumsRouter from "../api/albums"
+import { AlbumType } from "../types"
 
 jest.mock("axios")
-const axios = require("axios")
+const mockedAxios = axios as jest.Mocked<typeof axios>
 
 const app = express()
-app.use(express.json())
 app.use("/albums", albumsRouter)
 
 describe("GET /albums/:id", () => {
-  it("deve retornar uma lista de álbuns para um ID de usuário válido", async () => {
-    const mockAlbums = [
-      { userId: 1, id: 1, title: "Álbum 1" },
-      { userId: 1, id: 2, title: "Álbum 2" },
+  it("should return albums for a valid user ID", async () => {
+    const mockAlbums: AlbumType[] = [
+      { userId: 1, id: 1, title: "Album 1" },
+      { userId: 1, id: 2, title: "Album 2" },
     ]
-    axios.get.mockResolvedValue({ data: mockAlbums })
+
+    mockedAxios.get.mockResolvedValue({ data: mockAlbums })
 
     const response = await request(app).get("/albums/1")
 
@@ -23,8 +25,8 @@ describe("GET /albums/:id", () => {
     expect(response.body).toEqual(mockAlbums)
   })
 
-  it("deve retornar 404 se nenhum álbum for encontrado", async () => {
-    axios.get.mockResolvedValue({ data: [] })
+  it("should return 404 if no albums are found", async () => {
+    mockedAxios.get.mockResolvedValue({ data: [] })
 
     const response = await request(app).get("/albums/999")
 
@@ -32,8 +34,8 @@ describe("GET /albums/:id", () => {
     expect(response.body).toEqual({ error: "Albums do ID 999 não encontrados" })
   })
 
-  it("deve retornar 500 em caso de erro na requisição", async () => {
-    axios.get.mockRejectedValue(new Error("Erro na API"))
+  it("should return 500 if there is an error fetching albums", async () => {
+    mockedAxios.get.mockRejectedValue(new Error("Erro ao buscar os albums"))
 
     const response = await request(app).get("/albums/1")
 

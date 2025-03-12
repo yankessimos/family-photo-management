@@ -16,7 +16,6 @@ router.get("/:id", async (req: Request, res: Response) => {
 
     res.json(response.data)
   } catch (error) {
-    console.error(`Erro ao buscar os fotos do álbum ${id}: `, error)
     res.status(500).json({ error: `Erro ao buscar as fotos do álbum ${id}` })
   }
 })
