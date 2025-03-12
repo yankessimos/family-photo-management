@@ -144,12 +144,11 @@ O backend atua como um proxy para a API do JSONPlaceholder. Aqui estão os princ
 
 ## **Testes**
 
-O projeto inclui testes unitários para garantir a funcionalidade dos componentes e da lógica de negócios. Para rodar os testes:
+O projeto inclui testes unitários para garantir a lógica de negócios. Para rodar os testes:
 
-1. Navegue até a pasta do frontend ou do backend:
+1. Navegue até a pasta do backend:
 
    ```bash
-   cd frontend
    cd backend
    ```
 
